@@ -38,7 +38,7 @@ if upload_file is not None:
   res = requests.post(face_api_url, params=params,
                           headers=headers, data=binary_img)
   results = res.json()
-  font = ImageFont.truetype("arialbd.ttf", 32)
+  font = ImageFont.truetype("arialbd.ttf", 60)
   for result in results:
       rect = result['faceRectangle']
       gender = result['faceAttributes']['gender']
