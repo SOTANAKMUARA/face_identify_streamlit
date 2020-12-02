@@ -1,0 +1,18 @@
+gitの使い方
+
+1.requirements.txtというファイルを作成し、
+標準ライブラリ以外を書く
+
+2.gitの初期化
+git init
+
+3.
+git remote add origin url
+
+4.全てのファイルを追加する
+git add .
+
+5.git commit -m"1st commit"
+
+6.
+git push origin master
