@@ -48,3 +48,5 @@ if upload_file is not None:
       draw.text((rect['left'], rect['top']-150), gender+', old:'+str(old),font=font, fill='white')
   st.image(img, caption='Uploaded Image', use_column_width=True) #Trueにすると幅を自動補正してくれる
 
+  #変更しました
+
