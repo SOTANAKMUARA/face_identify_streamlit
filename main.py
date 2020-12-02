@@ -1,8 +1,7 @@
 import streamlit as st
 import requests
 from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
+from PIL import ImageDraw, ImageFont
 import math
 import io
 #import json
@@ -39,7 +38,7 @@ if upload_file is not None:
   res = requests.post(face_api_url, params=params,
                           headers=headers, data=binary_img)
   results = res.json()
-  font = ImageFont.truetype("arial.ttf", 32)
+  font = ImageFont.truetype("arialbd.ttf", 32)
   for result in results:
       rect = result['faceRectangle']
       gender = result['faceAttributes']['gender']
