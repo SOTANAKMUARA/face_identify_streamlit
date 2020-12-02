@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
 from PIL import Image
-from PIL import ImageDraw, ImageFont
+from PIL import ImageDraw
+from PIL import ImageFont
 import math
 import io
 #import json
@@ -38,14 +39,14 @@ if upload_file is not None:
   res = requests.post(face_api_url, params=params,
                           headers=headers, data=binary_img)
   results = res.json()
-#   font = ImageFont.truetype("arial.ttf", 32)
+  font = ImageFont.truetype("arial.ttf", 32)
   for result in results:
       rect = result['faceRectangle']
       gender = result['faceAttributes']['gender']
       old = math.floor(result['faceAttributes']['age'])
       draw = ImageDraw.Draw(img)
       draw.rectangle([(rect['left'], rect['top']), (rect['left']+rect['width'], rect['top']+rect['height'])], fill=None, outline='red', width=6)
-      draw.text((rect['left'], rect['top']-150), gender+', old:'+str(old), fill='white')
+      draw.text((rect['left'], rect['top']-150), gender+', old:'+str(old),font=font, fill='white')
   st.image(img, caption='Uploaded Image', use_column_width=True) #Trueにすると幅を自動補正してくれる
 
   #変更しました2
